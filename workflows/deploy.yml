@@ -22,7 +22,7 @@ jobs:
       - name: Replace secret in script.js
         run: |
           SECRET_VALUE="${{ secrets.PROFILE_NAME }}"
-          sed -i "s|{{SECRET_VALUE}}|$SECRET_VALUE|g" script.js
+          sed -i "s|{{SECRET_VALUE}}|$SECRET_VALUE|g" ../js/script.js
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
