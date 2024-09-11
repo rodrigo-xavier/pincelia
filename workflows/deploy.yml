@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Defina a versão do Node.js que deseja usar
+          node-version: '20'  # Defina a versão do Node.js que deseja usar
 
       - name: Install dependencies
         run: npm install
@@ -24,7 +24,9 @@ jobs:
       - name: Build project
         env:
           PROFILE_NAME: ${{ secrets.PROFILE_NAME }}  # Injetando uma variável de ambiente do GitHub Secrets
-        run: npm run build  # Altere para o comando de build do seu projeto
+        run: |
+          echo "PROFILE_NAME is: $PROFILE_NAME"
+          npm run build  # Altere para o comando de build do seu projeto
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
