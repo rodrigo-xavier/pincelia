@@ -175,10 +175,11 @@ body {
     color: white;
   }
   .promo-container {
-    position: relative;
-    top: -85px;
-    left: -15px;
+    position: absolute;
+    top: -10px;
+    left: -12px;
     text-align: center;
+    z-index: 2;
   }
   .promo-ball {
     background-color: #ff4136;

@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 
 function attachShareOptions() {
-    document.querySelectorAll('.share-btn').forEach(btn => {
+    const shareBtns = document.querySelectorAll('.share-btn');
+
+    shareBtns.forEach(btn => {
         // Criar e adicionar opções de compartilhamento
         const shareOptions = document.createElement('div');
         shareOptions.className = 'share-options';
@@ -24,7 +26,11 @@ function attachShareOptions() {
         // Alternar visibilidade das opções de compartilhamento
         btn.addEventListener('click', e => {
             e.stopPropagation();
-            shareOptions.style.display = shareOptions.style.display === 'block' ? 'none' : 'block';
+            const isVisible = shareOptions.style.display === 'block';
+            document.querySelectorAll('.share-options').forEach(option => {
+                option.style.display = 'none'; // Fecha todos os menus
+            });
+            shareOptions.style.display = isVisible ? 'none' : 'block'; // Alterna a visibilidade
         });
 
         // Adicionar eventos de clique aos links de compartilhamento
@@ -49,9 +55,15 @@ function attachShareOptions() {
 const Share = () => {
     useEffect(() => {
         attachShareOptions();
+
         const handleClickOutside = e => {
-            // Adicione a lógica para lidar com cliques fora do menu, se necessário
+            if (!e.target.closest('.share-btn') && !e.target.closest('.share-options')) {
+                document.querySelectorAll('.share-options').forEach(option => {
+                    option.style.display = 'none';
+                });
+            }
         };
+
         document.addEventListener('click', handleClickOutside);
 
         return () => {
