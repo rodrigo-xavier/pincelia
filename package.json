@@ -1,0 +1,9 @@
+{
+    "name": "github-pages-deploy",
+    "version": "1.0.0",
+    "main": "replace.js",
+    "scripts": {
+        "start": "node js/replace.js"
+    },
+    "dependencies": {}
+}

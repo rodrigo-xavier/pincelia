@@ -1,31 +1,35 @@
 # .github/workflows/deploy.yml
-name: Deploy GitHub Pages
+name: GitHub Pages Deploy
 
 on:
   push:
     branches:
-      - main  # Ou o branch principal do seu repositório
+      - main  # Substitua pelo branch correto
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout do repositório
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Configurar Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      - name: Replace secret in script.js
-        run: |
-          SECRET_VALUE="${{ secrets.PROFILE_NAME }}"
-          sed -i "s|{{SECRET_VALUE}}|$SECRET_VALUE|g" ../js/script.js
+      - name: Instalar dependências
+        run: npm install
 
-      - name: Deploy to GitHub Pages
+      - name: Executar o script de substituição
+        env:
+          SECRET_VALUE: ${{ secrets.PROFILE_NAME }}
+          VARIABLE_VALUE: ${{ vars.PROFILE_NAME }}
+        run: node replace.js
+
+      - name: Deploy para GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .  # Diretorio a ser publicado no GitHub Pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .  # Publica o diretório atual com o index.html modificado
