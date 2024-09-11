@@ -1,4 +1,5 @@
-const profileName = process.env.PROFILE_NAME;
-console.log('PROFILE NAME:', profileName);
-
-document.getElementById('profile-name').textContent = profileName;
+// script.js
+document.addEventListener('DOMContentLoaded', () => {
+    const secretValue = '{{SECRET_VALUE}}'; // Placeholder será substituído pelo GitHub Actions
+    document.getElementById('secret-value').textContent = secretValue;
+});

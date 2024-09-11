@@ -1,35 +1,31 @@
-name: Deploy to GitHub Pages
+# .github/workflows/deploy.yml
+name: Deploy GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Altere para a branch que você deseja observar
+      - main  # Ou o branch principal do seu repositório
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'  # Defina a versão do Node.js que deseja usar
+          node-version: '18'
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        env:
-          PROFILE_NAME: ${{ secrets.PROFILE_NAME }}  # Injetando uma variável de ambiente do GitHub Secrets
+      - name: Replace secret in script.js
         run: |
-          echo "PROFILE_NAME is: $PROFILE_NAME"
-          npm run build  # Altere para o comando de build do seu projeto
+          SECRET_VALUE="${{ secrets.PROFILE_NAME }}"
+          sed -i "s|{{SECRET_VALUE}}|$SECRET_VALUE|g" script.js
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public  # Altere para o diretório onde o seu projeto é compilado
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .  # Diretorio a ser publicado no GitHub Pages
