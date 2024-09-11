@@ -53,79 +53,12 @@ function checkPromoExpiration() {
     }
 }
 
-function attachShareOptions() {
-    const shareBtns = document.querySelectorAll('.share-btn');
-
-    shareBtns.forEach(btn => {
-        const shareOptions = document.createElement('div');
-        shareOptions.className = 'share-options';
-        shareOptions.innerHTML = `
-            <a href="#" class="share-twitter">
-                <div class="share-icon"><i class="fab fa-twitter"></i></div>
-                Twitter
-            </a>
-            <a href="#" class="share-facebook">
-                <div class="share-icon"><i class="fab fa-facebook-f"></i></div>
-                Facebook
-            </a>
-            <a href="#" class="share-linkedin">
-                <div class="share-icon"><i class="fab fa-linkedin-in"></i></div>
-                LinkedIn
-            </a>
-        `;
-        btn.parentNode.appendChild(shareOptions);
-
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const options = this.nextElementSibling;
-            options.style.display = options.style.display === 'block' ? 'none' : 'block';
-        });
-
-        const shareLinks = shareOptions.querySelectorAll('a');
-        shareLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const platform = this.classList[0].split('-')[1];
-                const url = this.closest('.link-container').querySelector('.link').href;
-                const text = "Check out this link: ";
-                let shareUrl;
-
-                switch(platform) {
-                    case 'twitter':
-                        shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
-                        break;
-                    case 'facebook':
-                        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-                        break;
-                    case 'linkedin':
-                        shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(text)}`;
-                        break;
-                }
-
-                window.open(shareUrl, '_blank', 'width=600,height=400');
-            });
-        });
-    });
-}
-
-function handleClickOutside(event) {
-    if (!event.target.closest('.share-options') && !event.target.closest('.share-btn')) {
-        const openOptions = document.querySelectorAll('.share-options');
-        openOptions.forEach(options => options.style.display = 'none');
-    }
-}
-
 const App = () => {
     useEffect(() => {
         setRandomGradient();
-        attachShareOptions();
         startCountdown();
         checkPromoExpiration();
-        document.addEventListener('click', handleClickOutside);
 
-        return () => {
-            document.removeEventListener('click', handleClickOutside);
-        };
     }, []);
 
     return (
