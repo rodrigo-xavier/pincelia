@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main  # Altere para o branch que você deseja monitorar
 
 jobs:
   deploy:
@@ -18,17 +18,29 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Install dependencies
-        run: npm install
-
       - name: Set environment variables
         env:
           PROFILE_NAME_SECRET: ${{ secrets.PROFILE_NAME }}
           PROFILE_NAME_VARIABLE: ${{ vars.PROFILE_NAME }}
         run: node replace.js
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./ # Diretório do seu projeto
+      - name: Build and deploy to GitHub Pages
+        run: |
+          # Configurar o git
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
+          # Criar o diretório temporário para o deploy
+          mkdir gh-pages
+          cp index.html gh-pages/
+          
+          # Mudar para o diretório do deploy
+          cd gh-pages
+          
+          # Inicializar o repositório e comitar as mudanças
+          git init
+          git add .
+          git commit -m "Deploy to GitHub Pages"
+
+          # Forçar push para o branch gh-pages
+          git push --force "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" master:gh-pages
