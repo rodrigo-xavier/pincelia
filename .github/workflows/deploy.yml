@@ -22,8 +22,8 @@ concurrency:
 
 #Allow repo secrets
 env:
-  PROFILE_NAME_SECRET: ${{ secrets.PROFILE_NAME }}
-  PROFILE_NAME_VARIABLE: ${{ vars.PROFILE_NAME }}
+  VITE_PROFILE_NAME_SECRET: ${{ secrets.PROFILE_NAME }}
+  VITE_PROFILE_NAME_VARIABLE: ${{ vars.PROFILE_NAME }}
 
 jobs:
   # Single deploy job since we're just deploying

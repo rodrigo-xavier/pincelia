@@ -4,9 +4,14 @@ import App from './App.jsx'
 import Replace from './replace.jsx'
 import './index.css'
 
-createRoot(document.getElementById('root')).render(
+
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
+
+
+root.render(
   <StrictMode>
     <Replace />
     <App />
-  </StrictMode>,
-)
+  </StrictMode>
+);

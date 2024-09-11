@@ -1,24 +1,18 @@
-// App.jsx
 import { useEffect } from 'react';
 
 const Replace = () => {
   useEffect(() => {
-    const secret = import.meta.env.PROFILE_NAME_SECRET;
-    const variable = import.meta.env.PROFILE_NAME_VARIABLE;
+    const secret = import.meta.env.VITE_PROFILE_NAME_SECRET;
+    const variable = import.meta.env.VITE_PROFILE_NAME_VARIABLE;
 
     const secretElement = document.getElementById('profile-secret');
     const variableElement = document.getElementById('profile-variable');
 
-    if (secretElement) secretElement.textContent = secret;
-    if (variableElement) variableElement.textContent = variable;
+    if (secretElement) secretElement.textContent = secret || 'Default Secret';
+    if (variableElement) variableElement.textContent = variable || 'Default Variable';
   }, []);
 
-  return (
-    <div>
-      <p id="profile-secret">Loading secret...</p>
-      <p id="profile-variable">Loading variable...</p>
-    </div>
-  );
+  return null;
 };
 
 export default Replace;
