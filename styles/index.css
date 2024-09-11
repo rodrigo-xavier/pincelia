@@ -86,6 +86,7 @@ p {
     display: block;
     font-weight: 400;
     font-size: 1.1rem;
+    position: relative;
 }
 .link:hover {
     background-color: #f5f5f5;
@@ -94,6 +95,19 @@ p {
 }
 .link-container.invisible {
     display: none;
+}
+.link-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+.link-container:hover .link-icon {
+    opacity: 1;
+    transform: translateY(-3px);
 }
 .share-btn {
     position: absolute;
@@ -161,14 +175,12 @@ p {
     color: white;
 }
 .promo-container {
-    position: sticky;
+    position: relative;
     top: -85px;
     left: -15px;
     text-align: center;
 }
 .promo-ball {
-    margin-top: -90;
-    margin-left: -230;
     background-color: #ff4136;
     color: white;
     width: 80px;
