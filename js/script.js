@@ -1,4 +1,3 @@
-
 function generateRandomColor() {
     return '#' + Math.floor(Math.random()*16777215).toString(16);
 }
@@ -12,9 +11,9 @@ function setRandomGradient() {
 function startCountdown() {
     const countdownElement = document.querySelector('.countdown-timer');
     let timeLeft = localStorage.getItem('promoTimeLeft');
-    
+
     if (!timeLeft) {
-        timeLeft = 15 * 60; // 15 minutes in seconds
+        timeLeft = 15 * 60; // 15 min
         localStorage.setItem('promoTimeLeft', timeLeft);
     } else {
         timeLeft = parseInt(timeLeft);
@@ -24,7 +23,7 @@ function startCountdown() {
         const minutes = Math.floor(timeLeft / 60);
         const seconds = timeLeft % 60;
         countdownElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        
+
         if (timeLeft > 0) {
             timeLeft--;
             localStorage.setItem('promoTimeLeft', timeLeft);
@@ -41,7 +40,7 @@ function startCountdown() {
 function checkPromoExpiration() {
     const timeLeft = localStorage.getItem('promoTimeLeft');
     const promoContainer = document.querySelector('.promo-container');
-    
+
     if (!timeLeft || parseInt(timeLeft) <= 0) {
         promoContainer.style.display = 'none';
     }
@@ -49,7 +48,7 @@ function checkPromoExpiration() {
 
 function attachShareOptions() {
     const shareBtns = document.querySelectorAll('.share-btn');
-    
+
     shareBtns.forEach(btn => {
         const shareOptions = document.createElement('div');
         shareOptions.className = 'share-options';
@@ -102,84 +101,17 @@ function attachShareOptions() {
     });
 }
 
-function setCookie(name, value, days) {
-    const expires = new Date();
-    expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
-    document.cookie = name + '=' + value + ';expires=' + expires.toUTCString() + ';path=/';
-}
-
-function getCookie(name) {
-    const nameEQ = name + "=";
-    const ca = document.cookie.split(';');
-    for(let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+function handleClickOutside(event) {
+    if (!event.target.closest('.share-options') && !event.target.closest('.share-btn')) {
+        const openOptions = document.querySelectorAll('.share-options');
+        openOptions.forEach(options => options.style.display = 'none');
     }
-    return null;
 }
 
-function handleCookieConsent() {
-    const cookieConsent = document.getElementById('cookie-consent');
-    const acceptBtn = document.getElementById('accept-cookies');
-    const refuseBtn = document.getElementById('refuse-cookies');
-
-    const consentStatus = getCookie('cookieConsent');
-
-    if (!consentStatus) {
-        cookieConsent.classList.add('show');
-    } else {
-        cookieConsent.style.display = 'none';
-    }
-
-    acceptBtn.addEventListener('click', () => {
-        setCookie('cookieConsent', 'accepted', 365);
-        cookieConsent.classList.remove('show');
-        cookieConsent.style.display = 'none';
-    });
-
-    refuseBtn.addEventListener('click', () => {
-        setCookie('cookieConsent', 'refused', 365);
-        cookieConsent.classList.remove('show');
-        cookieConsent.style.display = 'none';
-    });
-}
-
+document.addEventListener('click', handleClickOutside);
 document.addEventListener('DOMContentLoaded', function() {
     setRandomGradient();
     attachShareOptions();
     startCountdown();
     checkPromoExpiration();
-    handleCookieConsent();
-
-    const links = document.querySelectorAll('.link');
-
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const url = this.getAttribute('href');
-            
-            // Only prevent default for GitHub link
-            if (url.includes('github.com')) {
-                e.preventDefault();
-            }
-            
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-            }, 200);
-
-            // Open the link immediately
-            if (url.includes('github.com')) {
-                window.open(url, '_blank');
-            }
-        });
-    });
-
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.share-btn')) {
-            document.querySelectorAll('.share-options').forEach(options => {
-                options.style.display = 'none';
-            });
-        }
-    });
 });
