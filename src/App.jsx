@@ -1,3 +1,10 @@
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+// import './App.css'
+
+import React, { useEffect } from 'react';
+
 function generateRandomColor() {
     let color;
     do {
@@ -113,10 +120,24 @@ function handleClickOutside(event) {
     }
 }
 
-document.addEventListener('click', handleClickOutside);
-document.addEventListener('DOMContentLoaded', function() {
-    setRandomGradient();
-    attachShareOptions();
-    startCountdown();
-    checkPromoExpiration();
-});
+const App = () => {
+    useEffect(() => {
+        setRandomGradient();
+        attachShareOptions();
+        startCountdown();
+        checkPromoExpiration();
+        document.addEventListener('click', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
+
+    return (
+        <div>
+            {/* Your existing JSX content goes here */}
+        </div>
+    );
+}
+
+export default App;
