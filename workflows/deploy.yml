@@ -1,0 +1,33 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Altere para a branch que você deseja observar
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Defina a versão do Node.js que deseja usar
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        env:
+          PROFILE_NAME: ${{ secrets.PROFILE_NAME }}  # Injetando uma variável de ambiente do GitHub Secrets
+        run: npm run build  # Altere para o comando de build do seu projeto
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public  # Altere para o diretório onde o seu projeto é compilado
