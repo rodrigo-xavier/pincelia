@@ -4,31 +4,35 @@ const Replace = () => {
   useEffect(() => {
     const elements = [
       {
+        id: 'title',
+        text: import.meta.env.VITE_TITLE_SECRET || 'Secret',
+      },
+      {
         id: 'profile-name',
-        text: import.meta.env.VITE_PROFILE_NAME_SECRET || 'Default Secret',
+        text: import.meta.env.VITE_PROFILE_NAME_SECRET || 'Secret',
       },
       {
         id: 'profile-description',
-        text: import.meta.env.VITE_PROFILE_DESCRIPTION_VARIABLE || 'Default Variable',
+        text: import.meta.env.VITE_PROFILE_DESCRIPTION_VARIABLE || 'Variable',
       },
       {
         id: 'buy-a-image',
-        text: import.meta.env.VITE_BUY_A_IMAGE_DESCRIPTION_VARIABLE || 'Default Variable',
+        text: import.meta.env.VITE_BUY_A_IMAGE_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_BUY_A_IMAGE_SECRET || '_blank',
       },
       {
         id: 'buy-a-package',
-        text: import.meta.env.VITE_BUY_A_PACKAGE_DESCRIPTION_VARIABLE || 'Default Variable',
+        text: import.meta.env.VITE_BUY_A_PACKAGE_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_BUY_A_PACKAGE_SECRET || '_blank',
       },
       {
         id: 'buy-a-course',
-        text: import.meta.env.VITE_BUY_A_COURSE_DESCRIPTION_VARIABLE || 'Default Variable',
+        text: import.meta.env.VITE_BUY_A_COURSE_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_BUY_A_COURSE_SECRET || '_blank',
       },
       {
         id: 'sponsorship',
-        text: import.meta.env.VITE_SPONSORSHIP_CONTACT_DESCRIPTION_VARIABLE || 'Default Variable',
+        text: import.meta.env.VITE_SPONSORSHIP_CONTACT_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_SPONSORSHIP_CONTACT_SECRET || '_blank',
       },
       {

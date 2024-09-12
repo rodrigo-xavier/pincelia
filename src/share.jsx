@@ -16,10 +16,6 @@ function attachShareOptions() {
                 <div class="share-icon"><i class="fab fa-telegram"></i></div>
                 Telegram
             </a>
-            <a href="#" class="share-instagram">
-                <div class="share-icon"><i class="fab fa-instagram"></i></div>
-                Instagram
-            </a>
             <a href="#" class="share-facebook">
                 <div class="share-icon"><i class="fab fa-facebook-f"></i></div>
                 Facebook
@@ -28,7 +24,7 @@ function attachShareOptions() {
                 <div class="share-icon"><i class="fa-regular fa-envelope"></i></div>
                 Email
             </a>
-            `;
+        `;
         btn.parentNode.appendChild(shareOptions);
 
         // Alternar visibilidade das opções de compartilhamento
@@ -45,23 +41,28 @@ function attachShareOptions() {
         shareOptions.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', e => {
                 e.preventDefault();
-                const platform = link.classList[1];
-                const url = btn.closest('.link-container').querySelector('.link').href;
-                const text = "Check out this link: ";
+                const platform = link.classList[0].split('-')[1];
+                const url = window.location.href;
+                const title = document.title;
+
+                // Montagem das URLs de compartilhamento para cada plataforma
                 const shareUrl = {
+                    whatsapp: `https://api.whatsapp.com/send?text=${encodeURIComponent(`${title}\n${url}`)}`,
+                    telegram: `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
                     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-                    whatsapp: `https://api.whatsapp.com/send?text=${encodeURIComponent(url)}`,
-                    instagram: ``,
-                    telegram: ``,
-                    tiktok: ``,
-                    email: ``,
+                    email: `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`,
                 }[platform];
 
-                window.open(shareUrl, '_blank', 'width=600,height=400');
+                if (shareUrl) {
+                    window.open(shareUrl, '_blank');
+                } else {
+                    alert('Compartilhamento nesta plataforma não está disponível.');
+                }
             });
         });
     });
 }
+
 
 const Share = () => {
     useEffect(() => {
@@ -75,6 +76,7 @@ const Share = () => {
             }
         };
 
+        document.addEventListener('DOMContentLoaded', attachShareOptions);
         document.addEventListener('click', handleClickOutside);
 
         return () => {
