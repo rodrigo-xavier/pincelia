@@ -7,14 +7,6 @@ function attachShareOptions() {
         // Criar e adicionar opções de compartilhamento
         const shareOptions = document.createElement('div');
         shareOptions.className = 'share-options';
-        // <a href="#" class="share-twitter">
-        //     <div class="share-icon"><i class="fab fa-twitter"></i></div>
-        //     Twitter
-        // </a>
-        // <a href="#" class="share-linkedin">
-        //     <div class="share-icon"><i class="fab fa-linkedin-in"></i></div>
-        //     LinkedIn
-        // </a>
         shareOptions.innerHTML = `
             <a href="#" class="share-whatsapp">
                 <div class="share-icon"><i class="fab fa-whatsapp"></i></div>
@@ -36,7 +28,7 @@ function attachShareOptions() {
                 <div class="share-icon"><i class="fa-regular fa-envelope"></i></div>
                 Email
             </a>
-        `;
+            `;
         btn.parentNode.appendChild(shareOptions);
 
         // Alternar visibilidade das opções de compartilhamento
@@ -57,12 +49,12 @@ function attachShareOptions() {
                 const url = btn.closest('.link-container').querySelector('.link').href;
                 const text = "Check out this link: ";
                 const shareUrl = {
-                    // twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`,
-                    // linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(text)}`
                     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
                     whatsapp: `https://api.whatsapp.com/send?text=${encodeURIComponent(url)}`,
+                    instagram: ``,
                     telegram: ``,
-                    instagram: ``
+                    tiktok: ``,
+                    email: ``,
                 }[platform];
 
                 window.open(shareUrl, '_blank', 'width=600,height=400');

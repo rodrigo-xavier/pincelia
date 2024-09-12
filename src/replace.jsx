@@ -2,26 +2,68 @@ import { useEffect } from 'react';
 
 const Replace = () => {
   useEffect(() => {
-    const profileName = import.meta.env.VITE_PROFILE_NAME_SECRET;
-    const profileDescription = import.meta.env.VITE_PROFILE_DESCRIPTION_VARIABLE;
-    const buyAImageDescription = import.meta.env.VITE_BUY_A_IMAGE_DESCRIPTION_VARIABLE;
-    const buyAPackageDescription = import.meta.env.VITE_BUY_A_PACKAGE_DESCRIPTION_VARIABLE;
-    const buyACourseDescription = import.meta.env.VITE_BUY_A_COURSE_DESCRIPTION_VARIABLE;
-    const sponsorshipContactDescription = import.meta.env.VITE_SPONSORSHIP_CONTACT_DESCRIPTION_VARIABLE;
+    const elements = [
+      {
+        id: 'profile-name',
+        text: import.meta.env.VITE_PROFILE_NAME_SECRET || 'Default Secret',
+      },
+      {
+        id: 'profile-description',
+        text: import.meta.env.VITE_PROFILE_DESCRIPTION_VARIABLE || 'Default Variable',
+      },
+      {
+        id: 'buy-a-image',
+        text: import.meta.env.VITE_BUY_A_IMAGE_DESCRIPTION_VARIABLE || 'Default Variable',
+        link: import.meta.env.VITE_BUY_A_IMAGE_SECRET || '_blank',
+      },
+      {
+        id: 'buy-a-package',
+        text: import.meta.env.VITE_BUY_A_PACKAGE_DESCRIPTION_VARIABLE || 'Default Variable',
+        link: import.meta.env.VITE_BUY_A_PACKAGE_SECRET || '_blank',
+      },
+      {
+        id: 'buy-a-course',
+        text: import.meta.env.VITE_BUY_A_COURSE_DESCRIPTION_VARIABLE || 'Default Variable',
+        link: import.meta.env.VITE_BUY_A_COURSE_SECRET || '_blank',
+      },
+      {
+        id: 'sponsorship',
+        text: import.meta.env.VITE_SPONSORSHIP_CONTACT_DESCRIPTION_VARIABLE || 'Default Variable',
+        link: import.meta.env.VITE_SPONSORSHIP_CONTACT_SECRET || '_blank',
+      },
+      {
+        id: 'whatsapp',
+        link: import.meta.env.VITE_BUY_A_IMAGE_SECRET || '_blank',
+      },
+      {
+        id: 'telegram',
+        link: import.meta.env.VITE_TELEGRAM_SECRET || '_blank',
+      },
+      {
+        id: 'instagram',
+        link: import.meta.env.VITE_INSTAGRAM_SECRET || '_blank',
+      },
+      {
+        id: 'facebook',
+        link: import.meta.env.VITE_FACEBOOK_SECRET || '_blank',
+      },
+      {
+        id: 'email',
+        link: import.meta.env.VITE_SPONSORSHIP_CONTACT_SECRET || '_blank',
+      },
+      {
+        id: 'tiktok',
+        link: import.meta.env.VITE_TIKTOK_SECRET || '_blank',
+      },
+    ];
 
-    const profileNameElement = document.getElementById('profile-name');
-    const profileDescriptionElement = document.getElementById('profile-description');
-    const buyAImageDescriptionElement = document.getElementById('buy-a-image-description');
-    const buyAPackageDescriptionElement = document.getElementById('buy-a-package-description');
-    const buyACourseDescriptionElement = document.getElementById('buy-a-course-description');
-    const sponsorshipDescriptionElement = document.getElementById('sponsorship-description');
-
-    if (profileNameElement) profileNameElement.textContent = profileName || 'Default Secret';
-    if (profileDescriptionElement) profileDescriptionElement.textContent = profileDescription || 'Default Variable';
-    if (buyAImageDescriptionElement) buyAImageDescriptionElement.textContent = buyAImageDescription || 'Default Variable';
-    if (buyAPackageDescriptionElement) buyAPackageDescriptionElement.textContent = buyAPackageDescription || 'Default Variable';
-    if (buyACourseDescriptionElement) buyACourseDescriptionElement.textContent = buyACourseDescription || 'Default Variable';
-    if (sponsorshipDescriptionElement) sponsorshipDescriptionElement.textContent = sponsorshipContactDescription || 'Default Variable';
+    elements.forEach(({ id, text, link }) => {
+      const element = document.getElementById(id);
+      if (element) {
+        if (text) element.textContent = text;
+        if (link) element.href = link;
+      }
+    });
   }, []);
 
   return null;
