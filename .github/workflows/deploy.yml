@@ -23,7 +23,7 @@ concurrency:
 #Allow repo secrets
 env:
   VITE_PROFILE_NAME_SECRET: ${{ secrets.PROFILE_NAME }}
-  VITE_PROFILE_NAME_VARIABLE: ${{ vars.PROFILE_NAME }}
+  VITE_PROFILE_DESCRIPTION_VARIABLE: ${{ vars.PROFILE_DESCRIPTION }}
 
 jobs:
   # Single deploy job since we're just deploying
