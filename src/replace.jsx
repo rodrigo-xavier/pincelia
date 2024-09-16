@@ -59,6 +59,36 @@ const Replace = () => {
         id: 'tiktok',
         link: import.meta.env.VITE_TIKTOK_SECRET || '_blank',
       },
+      {
+        id: 'link01',
+        text: import.meta.env.VITE_LINK01_DESCRIPTION_VARIABLE || '_blank',
+        link: import.meta.env.VITE_LINK01_SECRET || 'Secret',
+      },
+      {
+        id: 'link02',
+        text: import.meta.env.VITE_LINK02_DESCRIPTION_VARIABLE || '_blank',
+        link: import.meta.env.VITE_LINK02_SECRET || 'Secret',
+      },
+      {
+        id: 'link03',
+        text: import.meta.env.VITE_LINK03_DESCRIPTION_VARIABLE || '_blank',
+        link: import.meta.env.VITE_LINK03_SECRET || 'Secret',
+      },
+      {
+        id: 'link04',
+        text: import.meta.env.VITE_LINK04_DESCRIPTION_VARIABLE || '_blank',
+        link: import.meta.env.VITE_LINK04_SECRET || 'Secret',
+      },
+      {
+        id: 'link05',
+        text: import.meta.env.VITE_LINK05_DESCRIPTION_VARIABLE || '_blank',
+        link: import.meta.env.VITE_LINK05_SECRET || 'Secret',
+      },
+      {
+        id: 'link06',
+        text: import.meta.env.VITE_LINK06_DESCRIPTION_VARIABLE || '_blank',
+        link: import.meta.env.VITE_LINK06_SECRET || 'Secret',
+      },
     ];
 
     elements.forEach(({ id, text, link }) => {
