@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 
 const Replace = () => {
+  const numLinks = import.meta.env.VITE_NUMLINKS;
+
   useEffect(() => {
     const elements = [
       {
@@ -10,30 +12,41 @@ const Replace = () => {
       {
         id: 'profile-name',
         text: import.meta.env.VITE_PROFILE_NAME_SECRET || 'Secret',
+        image: import.meta.env.VITE_PROFILE_IMAGE_URL_VARIABLE || '_blank',
       },
       {
-        id: 'profile-description',
+        id: 'profile-about',
         text: import.meta.env.VITE_PROFILE_DESCRIPTION_VARIABLE || 'Variable',
       },
       {
         id: 'buy-a-image',
         text: import.meta.env.VITE_BUY_A_IMAGE_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_BUY_A_IMAGE_SECRET || '_blank',
+        image: import.meta.env.VITE_BUY_A_IMAGE_URL_VARIABLE || '_blank',
       },
       {
         id: 'buy-a-package',
         text: import.meta.env.VITE_BUY_A_PACKAGE_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_BUY_A_PACKAGE_SECRET || '_blank',
+        image: import.meta.env.VITE_BUY_A_PACKAGE_IMAGE_URL_VARIABLE || '_blank',
       },
       {
         id: 'buy-a-course',
         text: import.meta.env.VITE_BUY_A_COURSE_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_BUY_A_COURSE_SECRET || '_blank',
+        image: import.meta.env.VITE_BUY_A_COURSE_IMAGE_URL_VARIABLE || '_blank',
       },
       {
         id: 'sponsorship',
         text: import.meta.env.VITE_SPONSORSHIP_CONTACT_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_SPONSORSHIP_CONTACT_SECRET || '_blank',
+        image: import.meta.env.VITE_SPONSORSHIP_IMAGE_URL_VARIABLE || '_blank',
+      },
+      {
+        id: 'affiliate-tool',
+        text: import.meta.env.VITE_AFFILIATE_TOOL_DESCRIPTION_VARIABLE || 'Variable',
+        link: import.meta.env.VITE_AFFILIATE_TOOL_SECRET || '_blank',
+        image: import.meta.env.VITE_AFFILIATE_TOOL_IMAGE_URL_VARIABLE || '_blank',
       },
       {
         id: 'whatsapp',
@@ -58,47 +71,36 @@ const Replace = () => {
       {
         id: 'tiktok',
         link: import.meta.env.VITE_TIKTOK_SECRET || '_blank',
-      },
-      {
-        id: 'link01',
-        text: import.meta.env.VITE_LINK01_DESCRIPTION_VARIABLE || '_blank',
-        link: import.meta.env.VITE_LINK01_SECRET || 'Secret',
-      },
-      {
-        id: 'link02',
-        text: import.meta.env.VITE_LINK02_DESCRIPTION_VARIABLE || '_blank',
-        link: import.meta.env.VITE_LINK02_SECRET || 'Secret',
-      },
-      {
-        id: 'link03',
-        text: import.meta.env.VITE_LINK03_DESCRIPTION_VARIABLE || '_blank',
-        link: import.meta.env.VITE_LINK03_SECRET || 'Secret',
-      },
-      {
-        id: 'link04',
-        text: import.meta.env.VITE_LINK04_DESCRIPTION_VARIABLE || '_blank',
-        link: import.meta.env.VITE_LINK04_SECRET || 'Secret',
-      },
-      {
-        id: 'link05',
-        text: import.meta.env.VITE_LINK05_DESCRIPTION_VARIABLE || '_blank',
-        link: import.meta.env.VITE_LINK05_SECRET || 'Secret',
-      },
-      {
-        id: 'link06',
-        text: import.meta.env.VITE_LINK06_DESCRIPTION_VARIABLE || '_blank',
-        link: import.meta.env.VITE_LINK06_SECRET || 'Secret',
-      },
+      }
     ];
 
-    elements.forEach(({ id, text, link }) => {
-      const element = document.getElementById(id);
-      if (element) {
-        if (text) element.textContent = text;
-        if (link) element.href = link;
+    for (let i = 1; i <= numLinks; i++) {
+      elements.push({
+        id: `link${i}`,
+        text: import.meta.env[`VITE_LINK${i}_DESCRIPTION_VARIABLE`] || '_blank',
+        link: import.meta.env[`VITE_LINK${i}_SECRET`] || 'Secret',
+        image: import.meta.env[`VITE_LINK${i}_IMAGE_URL_VARIABLE`] || '_blank',
+      });
+    }
+
+    elements.forEach(({ id, text, link, image }) => {
+      const linkElement = document.getElementById(id);
+      const imageElement = document.getElementById(`${id}-image`);
+      const descriptionElement = document.getElementById(`${id}-description`);
+
+      if (linkElement && link) {
+        linkElement.href = link;
+      }
+
+      if (imageElement && image) {
+        imageElement.src = image;
+      }
+
+      if (descriptionElement && text) {
+        descriptionElement.textContent = text;
       }
     });
-  }, []);
+  }, [numLinks]);
 
   return null;
 };
