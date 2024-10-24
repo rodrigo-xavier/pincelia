@@ -65,7 +65,8 @@ function attachShareOptions() {
                     tiktok: `https://www.tiktok.com/upload?refer=${encodeURIComponent(url)}`,
                     bluesky: `https://bsky.app/profile/share?text=${encodeURIComponent(`${title}\n${url}`)}`,
                     // facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-                    facebook: `http://m.me/Pincelia?ref=${encodeURIComponent(url)}`,
+                    // facebook: `http://m.me/Pincelia?ref=${encodeURIComponent(url)}`,
+                    facebook: `fb-messenger://share?link=${encodeURIComponent(url)}`,
                     twitter: `https://twitter.com/share?url=${encodeURIComponent(url)}`,
                     email: `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`,
                 }[platform];
