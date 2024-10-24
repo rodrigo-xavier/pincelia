@@ -20,14 +20,6 @@ function attachShareOptions() {
                 <div class="share-icon"><i class="fab fa-instagram"></i></div>
                 Instagram
             </a>
-            <a href="#" class="share-facebook">
-                <div class="share-icon"><i class="fab fa-facebook-f"></i></div>
-                Facebook
-            </a>
-            <a href="#" class="share-tiktok">
-                <div class="share-icon"><i class="fa-brands fa-tiktok"></i></div>
-                TikTok
-            </a>
             <a href="#" class="share-twitter">
                 <div class="share-icon"><i class="fa-brands fa-twitter"></i></div>
                 Twitter
@@ -36,7 +28,20 @@ function attachShareOptions() {
                 <div class="share-icon"><i class="fa-regular fa-envelope"></i></div>
                 Email
             </a>
-        `;
+            `;
+        // <a href="#" class="share-tiktok">
+        //     <div class="share-icon"><i class="fa-brands fa-tiktok"></i></div>
+        //     TikTok
+        // </a>
+        // <a href="#" class="share-bluesky">
+        //     <div class="share-icon"><i class="fa-brands fa-bluesky"></i></div>
+        //     Bluesky
+        // </a>
+        // <a href="#" class="share-facebook">
+        //     <div class="share-icon"><i class="fab fa-facebook-f"></i></div>
+        //     Facebook
+        // </a>
+
         btn.parentNode.appendChild(shareOptions);
 
         // Alternar visibilidade das opções de compartilhamento
@@ -62,11 +67,9 @@ function attachShareOptions() {
                     whatsapp: `https://api.whatsapp.com/send?text=${encodeURIComponent(`${title}\n${url}`)}`,
                     telegram: `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
                     instagram: `https://www.instagram.com/pincel.ia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==`,
-                    tiktok: `https://www.tiktok.com/upload?refer=${encodeURIComponent(url)}`,
+                    tiktok: `https://www.tiktok.com/@pincel.ia`,
                     bluesky: `https://bsky.app/profile/share?text=${encodeURIComponent(`${title}\n${url}`)}`,
-                    // facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-                    // facebook: `http://m.me/Pincelia?ref=${encodeURIComponent(url)}`,
-                    facebook: `fb-messenger://share?link=${encodeURIComponent(url)}`,
+                    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${title}\n${url}`)}`,
                     twitter: `https://twitter.com/share?url=${encodeURIComponent(url)}`,
                     email: `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`,
                 }[platform];
