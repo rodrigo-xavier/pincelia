@@ -16,9 +16,21 @@ function attachShareOptions() {
                 <div class="share-icon"><i class="fab fa-telegram"></i></div>
                 Telegram
             </a>
+            <a href="#" class="share-instagram">
+                <div class="share-icon"><i class="fab fa-instagram"></i></div>
+                Instagram
+            </a>
             <a href="#" class="share-facebook">
                 <div class="share-icon"><i class="fab fa-facebook-f"></i></div>
                 Facebook
+            </a>
+            <a href="#" class="share-tiktok">
+                <div class="share-icon"><i class="fa-brands fa-tiktok"></i></div>
+                TikTok
+            </a>
+            <a href="#" class="share-twitter">
+                <div class="share-icon"><i class="fa-brands fa-twitter"></i></div>
+                Twitter
             </a>
             <a href="#" class="share-email">
                 <div class="share-icon"><i class="fa-regular fa-envelope"></i></div>
@@ -49,7 +61,12 @@ function attachShareOptions() {
                 const shareUrl = {
                     whatsapp: `https://api.whatsapp.com/send?text=${encodeURIComponent(`${title}\n${url}`)}`,
                     telegram: `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
-                    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+                    instagram: `https://www.instagram.com/pincel.ia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==`,
+                    tiktok: `https://www.tiktok.com/upload?refer=${encodeURIComponent(url)}`,
+                    bluesky: `https://bsky.app/profile/share?text=${encodeURIComponent(`${title}\n${url}`)}`,
+                    // facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+                    facebook: `http://m.me/Pincelia?ref=${encodeURIComponent(url)}`,
+                    twitter: `https://twitter.com/share?url=${encodeURIComponent(url)}`,
                     email: `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`,
                 }[platform];
 

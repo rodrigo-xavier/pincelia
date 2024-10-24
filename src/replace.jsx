@@ -51,26 +51,32 @@ const Replace = () => {
       {
         id: 'whatsapp',
         link: import.meta.env.VITE_BUY_A_IMAGE_SECRET || '_blank',
+        title: import.meta.env.VITE_BUY_A_IMAGE_SECRET || '_blank',
       },
       {
         id: 'telegram',
         link: import.meta.env.VITE_TELEGRAM_SECRET || '_blank',
+        title: import.meta.env.VITE_TELEGRAM_SECRET || '_blank',
       },
       {
         id: 'instagram',
         link: import.meta.env.VITE_INSTAGRAM_SECRET || '_blank',
+        title: import.meta.env.VITE_INSTAGRAM_SECRET || '_blank',
       },
       {
         id: 'facebook',
         link: import.meta.env.VITE_FACEBOOK_SECRET || '_blank',
+        title: import.meta.env.VITE_FACEBOOK_SECRET || '_blank',
       },
       {
         id: 'email',
-        link: import.meta.env.VITE_SPONSORSHIP_CONTACT_SECRET || '_blank',
+        link: import.meta.env.VITE_EMAIL_SECRET || '_blank',
+        title: import.meta.env.VITE_EMAIL_SECRET || '_blank',
       },
       {
         id: 'tiktok',
         link: import.meta.env.VITE_TIKTOK_SECRET || '_blank',
+        title: import.meta.env.VITE_TIKTOK_SECRET || '_blank',
       }
     ];
 
@@ -83,13 +89,18 @@ const Replace = () => {
       });
     }
 
-    elements.forEach(({ id, text, link, image }) => {
+    elements.forEach(({ id, text, link, title, image }) => {
       const linkElement = document.getElementById(id);
+      // const linkTitleElement = document.getElementById(id);
       const imageElement = document.getElementById(`${id}-image`);
       const descriptionElement = document.getElementById(`${id}-description`);
 
       if (linkElement && link) {
         linkElement.href = link;
+      }
+
+      if (linkElement && title) {
+        linkElement.title = title;
       }
 
       if (imageElement && image) {
