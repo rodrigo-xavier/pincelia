@@ -22,31 +22,31 @@ const Replace = () => {
         id: 'buy-a-image',
         text: import.meta.env.VITE_BUY_A_IMAGE_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_BUY_A_IMAGE_SECRET || '_blank',
-        image: "./pincelia/src/assets/img/aplicativo-de-ia.png",
+        image: "./src/assets/img/aplicativo-de-ia.png",
       },
       {
         id: 'buy-a-package',
         text: import.meta.env.VITE_BUY_A_PACKAGE_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_BUY_A_PACKAGE_SECRET || '_blank',
-        image: "./pincelia/src/assets/img/aplicativo-de-ia.png",
+        image: "./src/assets/img/aplicativo-de-ia.png",
       },
       {
         id: 'buy-a-course',
         text: import.meta.env.VITE_BUY_A_COURSE_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_BUY_A_COURSE_SECRET || '_blank',
-        image: "./pincelia/src/assets/img/curso-online.png",
+        image: "./src/assets/img/curso-online.png",
       },
       {
         id: 'sponsorship',
         text: import.meta.env.VITE_SPONSORSHIP_CONTACT_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_SPONSORSHIP_CONTACT_SECRET || '_blank',
-        image: "./pincelia/src/assets/img/patrocinio.png",
+        image: "./src/assets/img/patrocinio.png",
       },
       {
         id: 'affiliate-tool',
         text: import.meta.env.VITE_AFFILIATE_TOOL_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_AFFILIATE_TOOL_SECRET || '_blank',
-        image: "./pincelia/src/assets/img/edicao-de-imagem.png",
+        image: "./src/assets/img/edicao-de-imagem.png",
       },
       {
         id: 'whatsapp',
@@ -81,12 +81,12 @@ const Replace = () => {
     ];
 
     const imageUrls = {
-      1: "./pincelia/src/assets/img/instagram.png",
-      2: "./pincelia/src/assets/img/instagram.png",
-      3: "./pincelia/src/assets/img/instagram.png",
-      4: "./pincelia/src/assets/img/tik-tok.png",
-      5: "./pincelia/src/assets/img/tik-tok.png",
-      6: "./pincelia/src/assets/img/tik-tok.png",
+      1: "./src/assets/img/instagram.png",
+      2: "./src/assets/img/instagram.png",
+      3: "./src/assets/img/instagram.png",
+      4: "./src/assets/img/tik-tok.png",
+      5: "./src/assets/img/tik-tok.png",
+      6: "./src/assets/img/tik-tok.png",
     };
 
     for (let i = 1; i <= numLinks; i++) {
