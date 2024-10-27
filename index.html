@@ -101,6 +101,27 @@
             <!-- <a class="menu-container" href="https://www.flaticon.com/br/icones-gratis/processo" title="processo ícones">Processo ícones criados por redempticon - Flaticon</a> -->
         </div>
         <script type="module" src="/src/main.jsx"></script>
+        <canvas class="background"></canvas>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            Particles.init({
+                selector: ".background",
+                color: ["#03dac6", "#ff0266", "#000000"],
+                connectParticles: true,
+                responsive: [
+                {
+                    breakpoint: 768,
+                    options: {
+                    color: ["#faebd7", "#03dac6", "#ff0266"],
+                    maxParticles: 43,
+                    connectParticles: false,
+                    },
+                },
+                ],
+            });
+            });
+        </script>
     </body>
 
 </html>
