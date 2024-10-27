@@ -12,7 +12,7 @@ const Replace = () => {
       {
         id: 'profile-name',
         text: import.meta.env.VITE_PROFILE_NAME_SECRET || 'Secret',
-        image: "./Image/profile.png"
+        image: "./images/profile.png"
       },
       {
         id: 'profile-about',
@@ -22,31 +22,31 @@ const Replace = () => {
         id: 'buy-a-image',
         text: import.meta.env.VITE_BUY_A_IMAGE_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_BUY_A_IMAGE_SECRET || '_blank',
-        image: "./Image/aplicativo-de-ia.png",
+        image: "./images/aplicativo-de-ia.png",
       },
       {
         id: 'buy-a-package',
         text: import.meta.env.VITE_BUY_A_PACKAGE_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_BUY_A_PACKAGE_SECRET || '_blank',
-        image: "./Image/aplicativo-de-ia.png",
+        image: "./images/aplicativo-de-ia.png",
       },
       {
         id: 'buy-a-course',
         text: import.meta.env.VITE_BUY_A_COURSE_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_BUY_A_COURSE_SECRET || '_blank',
-        image: "./Image/curso-online.png",
+        image: "./images/curso-online.png",
       },
       {
         id: 'sponsorship',
         text: import.meta.env.VITE_SPONSORSHIP_CONTACT_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_SPONSORSHIP_CONTACT_SECRET || '_blank',
-        image: "./Image/patrocinio.png",
+        image: "./images/patrocinio.png",
       },
       {
         id: 'affiliate-tool',
         text: import.meta.env.VITE_AFFILIATE_TOOL_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_AFFILIATE_TOOL_SECRET || '_blank',
-        image: "./Image/edicao-de-imagem.png",
+        image: "./images/edicao-de-imagem.png",
       },
       {
         id: 'whatsapp',
@@ -81,12 +81,12 @@ const Replace = () => {
     ];
 
     const imageUrls = {
-      1: "./Image/instagram.png",
-      2: "./Image/instagram.png",
-      3: "./Image/instagram.png",
-      4: "./Image/tik-tok.png",
-      5: "./Image/tik-tok.png",
-      6: "./Image/tik-tok.png",
+      1: "./images/instagram.png",
+      2: "./images/instagram.png",
+      3: "./images/instagram.png",
+      4: "./images/tik-tok.png",
+      5: "./images/tik-tok.png",
+      6: "./images/tik-tok.png",
     };
 
     for (let i = 1; i <= numLinks; i++) {
