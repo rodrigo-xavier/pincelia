@@ -1,6 +1,7 @@
 // main.jsx
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Importando Router e Routes
 import App from './App.jsx';
 import Replace from './replace.jsx';
 import Share from './share.jsx';
@@ -12,9 +13,15 @@ const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <SocialMedia />
-    <Replace />
-    <App />
-    <Share />
+    <Router>
+      <SocialMedia />
+      <Replace />
+      <App />
+      <Share />
+      <Routes>
+        <Route path="/us" />
+        <Route path="/pt" />
+      </Routes>
+    </Router>
   </StrictMode>
 );
