@@ -121,7 +121,7 @@ const Replace = () => {
         descriptionElement.textContent = text;
       }
     });
-  }, [numLinks]);
+  }, [numLinks, baseUrl]);
 
   return null;
 };
