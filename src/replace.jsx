@@ -1,9 +1,12 @@
 import { useEffect } from 'react';
 import instagramImageUrl from "./assets/img/instagram.png"
 import tiktokImageUrl from "./assets/img/tik-tok.png"
-// import minus from "./assets/img/minus.svg"
-// import desktop from "./assets/img/desktop.svg"
-// import mobile from "./assets/img/mobile.svg"
+import profile from "./assets/img/profile.png"
+import buyAImage from "./assets/img/aplicativo-de-ia.png"
+import buyAPackage from "./assets/img/aplicativo-de-ia.png"
+import buyACourse from "./assets/img/curso-online.png"
+import sponsorship from "./assets/img/patrocinio.png"
+import affiliateTool from "./assets/img/edicao-de-imagem.png"
 
 const Replace = () => {
   const numLinks = import.meta.env.VITE_NUMLINKS;
@@ -17,6 +20,7 @@ const Replace = () => {
       {
         id: 'profile-name',
         text: import.meta.env.VITE_PROFILE_NAME_SECRET || 'Secret',
+        image: profile,
       },
       {
         id: 'profile-about',
@@ -26,26 +30,31 @@ const Replace = () => {
         id: 'buy-a-image',
         text: import.meta.env.VITE_BUY_A_IMAGE_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_BUY_A_IMAGE_SECRET || '_blank',
+        image: buyAImage,
       },
       {
         id: 'buy-a-package',
         text: import.meta.env.VITE_BUY_A_PACKAGE_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_BUY_A_PACKAGE_SECRET || '_blank',
+        image: buyAPackage,
       },
       {
         id: 'buy-a-course',
         text: import.meta.env.VITE_BUY_A_COURSE_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_BUY_A_COURSE_SECRET || '_blank',
+        image: buyACourse,
       },
       {
         id: 'sponsorship',
         text: import.meta.env.VITE_SPONSORSHIP_CONTACT_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_SPONSORSHIP_CONTACT_SECRET || '_blank',
+        image: sponsorship,
       },
       {
         id: 'affiliate-tool',
         text: import.meta.env.VITE_AFFILIATE_TOOL_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_AFFILIATE_TOOL_SECRET || '_blank',
+        image: affiliateTool,
       },
       {
         id: 'whatsapp',
