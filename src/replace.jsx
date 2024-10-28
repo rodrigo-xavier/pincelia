@@ -74,13 +74,16 @@ const Replace = () => {
       }
     ];
 
+    const instagramImageUrl = new URL('src/assets/img/instagram.png', import.meta.url).href;
+    const tiktokImageUrl = new URL('src/assets/img/tik-tok.png', import.meta.url).href;
+
     const imageUrls = {
-      1: `/public/assets/instagram.png`,
-      2: `/public/assets/instagram.png`,
-      3: `/public/assets/instagram.png`,
-      4: `/public/assets/tik-tok.png`,
-      5: `/public/assets/tik-tok.png`,
-      6: `/public/assets/tik-tok.png`,
+      1: instagramImageUrl,
+      2: instagramImageUrl,
+      3: instagramImageUrl,
+      4: tiktokImageUrl,
+      5: tiktokImageUrl,
+      6: tiktokImageUrl,
     };
 
     for (let i = 1; i <= numLinks; i++) {
