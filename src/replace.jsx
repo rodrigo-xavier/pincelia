@@ -6,7 +6,8 @@ import buyAImage from "./assets/img/aplicativo-de-ia.png"
 import buyAPackage from "./assets/img/aplicativo-de-ia.png"
 import buyACourse from "./assets/img/curso-online.png"
 import sponsorship from "./assets/img/patrocinio.png"
-import affiliateTool from "./assets/img/edicao-de-imagem.png"
+import affiliateImage from "./assets/img/edicao-de-imagem.png"
+import affiliateAudio from "./assets/img/edicao-de-imagem.png"
 import buyAMusic from "./assets/img/saxofone.png"
 import buyAClip from "./assets/img/videoclipe.png"
 import buyAAudio from "./assets/img/falando.png"
@@ -67,9 +68,15 @@ const Replace = () => {
         image: buyAPackage,
       },
       {
-        id: 'buy-a-course',
-        text: getEnvVariable('VITE_BUY_A_COURSE_DESCRIPTION_VARIABLE'),
-        link: getEnvVariable('VITE_BUY_A_COURSE_SECRET'),
+        id: 'buy-a-course1',
+        text: getEnvVariable('VITE_BUY_A_COURSE1_DESCRIPTION_VARIABLE'),
+        link: getEnvVariable('VITE_BUY_A_COURSE1_SECRET'),
+        image: buyACourse,
+      },
+      {
+        id: 'buy-a-course2',
+        text: getEnvVariable('VITE_BUY_A_COURSE2_DESCRIPTION_VARIABLE'),
+        link: getEnvVariable('VITE_BUY_A_COURSE2_SECRET'),
         image: buyACourse,
       },
       {
@@ -79,10 +86,16 @@ const Replace = () => {
         image: sponsorship,
       },
       {
-        id: 'affiliate-tool',
-        text: getEnvVariable('VITE_AFFILIATE_TOOL_DESCRIPTION_VARIABLE'),
-        link: getEnvVariable('VITE_AFFILIATE_TOOL_SECRET'),
-        image: affiliateTool,
+        id: 'affiliate-image',
+        text: getEnvVariable('VITE_AFFILIATE_IMAGE_DESCRIPTION_VARIABLE'),
+        link: getEnvVariable('VITE_AFFILIATE_IMAGE_SECRET'),
+        image: affiliateImage,
+      },
+      {
+        id: 'affiliate-audio',
+        text: getEnvVariable('VITE_AFFILIATE_AUDIO_DESCRIPTION_VARIABLE'),
+        link: getEnvVariable('VITE_AFFILIATE_AUDIO_SECRET'),
+        image: affiliateAudio,
       },
       {
         id: 'whatsapp',
