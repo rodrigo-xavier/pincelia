@@ -22,8 +22,6 @@ concurrency:
 
 #Allow repo secrets
 env:
-  VITE_BASE_URL: ${{ vars.VITE_BASE_URL }}
-
   VITE_INSTAGRAM_SECRET: ${{ secrets.VITE_INSTAGRAM_SECRET }}
   VITE_FACEBOOK_SECRET: ${{ secrets.VITE_FACEBOOK_SECRET }}
   VITE_TIKTOK_SECRET: ${{ secrets.VITE_TIKTOK_SECRET }}
