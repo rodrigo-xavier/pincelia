@@ -1,4 +1,9 @@
 import { useEffect } from 'react';
+import instagramImageUrl from "./assets/img/instagram.png"
+import tiktokImageUrl from "./assets/img/tik-tok.png"
+// import minus from "./assets/img/minus.svg"
+// import desktop from "./assets/img/desktop.svg"
+// import mobile from "./assets/img/mobile.svg"
 
 const Replace = () => {
   const numLinks = import.meta.env.VITE_NUMLINKS;
@@ -73,9 +78,6 @@ const Replace = () => {
         title: import.meta.env.VITE_TIKTOK_SECRET || '_blank',
       }
     ];
-
-    const instagramImageUrl = new URL('src/assets/img/instagram.png', import.meta.url).href;
-    const tiktokImageUrl = new URL('src/assets/img/tik-tok.png', import.meta.url).href;
 
     const imageUrls = {
       1: instagramImageUrl,
