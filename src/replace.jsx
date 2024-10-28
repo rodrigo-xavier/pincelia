@@ -14,7 +14,7 @@ import buyAAudio from "./assets/img/falando.png"
 const Replace = () => {
   const numLinks = import.meta.env.VITE_NUMLINKS;
 
-  const lang = window.location.pathname.split('pincelia/')[1];
+  const lang = window.location.pathname.split('/').pop();
   const selectedLang = lang === 'us' ? 'US' : 'PT';
 
   const getEnvVariable = (name) => {
