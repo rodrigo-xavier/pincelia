@@ -18,11 +18,11 @@ const Replace = () => {
   const lang = window.location.pathname.split('/').pop();
   const selectedLang = lang === 'us' ? 'US' : 'PT';
 
-  const getEnvVariable = (name) => {
-    return import.meta.env[`${name}_${selectedLang}`] || import.meta.env[name];
-  };
-
   useEffect(() => {
+    const getEnvVariable = (name) => {
+      return import.meta.env[`${name}_${selectedLang}`] || import.meta.env[name];
+    };
+
     const elements = [
       {
         id: 'title',
@@ -168,7 +168,7 @@ const Replace = () => {
         descriptionElement.textContent = text;
       }
     });
-  }, [numLinks]);
+  }, [numLinks, selectedLang]);
 
   return null;
 };

@@ -1,27 +1,24 @@
-// main.jsx
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import App from './App.jsx';
-import Replace from './replace.jsx';
-import Share from './share.jsx';
-import SocialMedia from './socialmedia.jsx';
+import { createRoot } from "react-dom/client";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+  Route,
+} from "react-router-dom";
 import './index.css';
+import App from './app.jsx';
 
-const rootElement = document.getElementById('root');
-const root = createRoot(rootElement);
 
-root.render(
-  <StrictMode>
-    <Router>
-      <SocialMedia />
-      <Replace />
-      <App />
-      <Share />
-      <Routes>
-        <Route path="/us" />
-        <Route path="/pt" />
-      </Routes>
-    </Router>
-  </StrictMode>
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route>
+      <Route path="/us" element={<App />} />
+      <Route path="/pt" element={<App />} />
+      <Route path="*" element={<App />} />
+    </Route>
+  )
+);
+
+createRoot(document.getElementById("root")).render(
+  <RouterProvider router={router} />
 );
