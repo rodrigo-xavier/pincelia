@@ -75,12 +75,12 @@ const Replace = () => {
     ];
 
     const imageUrls = {
-      1: "./src/assets/img/instagram.png",
-      2: "./src/assets/img/instagram.png",
-      3: "./src/assets/img/instagram.png",
-      4: "./src/assets/img/tik-tok.png",
-      5: "./src/assets/img/tik-tok.png",
-      6: "./src/assets/img/tik-tok.png",
+      1: "/pincelia/assets/instagram.png",
+      2: "/pincelia/assets/instagram.png",
+      3: "/pincelia/assets/instagram.png",
+      4: "/pincelia/assets/tik-tok.png",
+      5: "/pincelia/assets/tik-tok.png",
+      6: "/pincelia/assets/tik-tok.png",
     };
 
     for (let i = 1; i <= numLinks; i++) {

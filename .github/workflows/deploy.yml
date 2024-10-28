@@ -84,8 +84,6 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
-      - name: List build directory contents
-        run: ls -R ./
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
