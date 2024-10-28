@@ -1,5 +1,5 @@
 function addSocialMedia() {
-    const container = document.querySelectorAll('.links')[1];
+    const container = document.querySelectorAll('.links')[3];
 
     // Limpa o conteúdo existente para evitar duplicação
     container.innerHTML = '';

@@ -7,84 +7,112 @@ import buyAPackage from "./assets/img/aplicativo-de-ia.png"
 import buyACourse from "./assets/img/curso-online.png"
 import sponsorship from "./assets/img/patrocinio.png"
 import affiliateTool from "./assets/img/edicao-de-imagem.png"
+import buyAMusic from "./assets/img/saxofone.png"
+import buyAClip from "./assets/img/videoclipe.png"
+import buyAAudio from "./assets/img/falando.png"
 
 const Replace = () => {
   const numLinks = import.meta.env.VITE_NUMLINKS;
+
+  const lang = window.location.pathname.split('pincelia/')[1];
+  const selectedLang = lang === 'us' ? 'US' : 'PT';
+
+  const getEnvVariable = (name) => {
+    return import.meta.env[`${name}_${selectedLang}`] || import.meta.env[name];
+  };
 
   useEffect(() => {
     const elements = [
       {
         id: 'title',
-        text: import.meta.env.VITE_TITLE_SECRET || 'Secret',
+        text: getEnvVariable('VITE_TITLE_SECRET'),
       },
       {
         id: 'profile-name',
-        text: import.meta.env.VITE_PROFILE_NAME_SECRET || 'Secret',
+        text: getEnvVariable('VITE_PROFILE_NAME_SECRET'),
         image: profile,
       },
       {
         id: 'profile-about',
-        text: import.meta.env.VITE_PROFILE_DESCRIPTION_VARIABLE || 'Variable',
+        text: getEnvVariable('VITE_PROFILE_DESCRIPTION_VARIABLE'),
       },
       {
         id: 'buy-a-image',
-        text: import.meta.env.VITE_BUY_A_IMAGE_DESCRIPTION_VARIABLE || 'Variable',
-        link: import.meta.env.VITE_BUY_A_IMAGE_SECRET || '_blank',
+        text: getEnvVariable('VITE_BUY_A_IMAGE_DESCRIPTION_VARIABLE'),
+        link: getEnvVariable('VITE_BUY_A_IMAGE_SECRET'),
         image: buyAImage,
       },
       {
+        id: 'buy-a-audio',
+        text: getEnvVariable('VITE_BUY_A_AUDIO_DESCRIPTION_VARIABLE'),
+        link: getEnvVariable('VITE_BUY_A_AUDIO_SECRET'),
+        image: buyAAudio,
+      },
+      {
+        id: 'buy-a-music',
+        text: getEnvVariable('VITE_BUY_A_MUSIC_DESCRIPTION_VARIABLE'),
+        link: getEnvVariable('VITE_BUY_A_MUSIC_SECRET'),
+        image: buyAMusic,
+      },
+      {
+        id: 'buy-a-video-clip',
+        text: getEnvVariable('VITE_BUY_A_VIDEO_CLIP_DESCRIPTION_VARIABLE'),
+        link: getEnvVariable('VITE_BUY_A_VIDEO_CLIP_SECRET'),
+        image: buyAClip,
+      },
+      {
         id: 'buy-a-package',
-        text: import.meta.env.VITE_BUY_A_PACKAGE_DESCRIPTION_VARIABLE || 'Variable',
-        link: import.meta.env.VITE_BUY_A_PACKAGE_SECRET || '_blank',
+        text: getEnvVariable('VITE_BUY_A_PACKAGE_DESCRIPTION_VARIABLE'),
+        link: getEnvVariable('VITE_BUY_A_PACKAGE_SECRET'),
         image: buyAPackage,
       },
       {
         id: 'buy-a-course',
-        text: import.meta.env.VITE_BUY_A_COURSE_DESCRIPTION_VARIABLE || 'Variable',
-        link: import.meta.env.VITE_BUY_A_COURSE_SECRET || '_blank',
+        text: getEnvVariable('VITE_BUY_A_COURSE_DESCRIPTION_VARIABLE'),
+        link: getEnvVariable('VITE_BUY_A_COURSE_SECRET'),
         image: buyACourse,
       },
       {
         id: 'sponsorship',
-        text: import.meta.env.VITE_SPONSORSHIP_CONTACT_DESCRIPTION_VARIABLE || 'Variable',
-        link: import.meta.env.VITE_SPONSORSHIP_CONTACT_SECRET || '_blank',
+        text: getEnvVariable('VITE_SPONSORSHIP_CONTACT_DESCRIPTION_VARIABLE'),
+        link: getEnvVariable('VITE_SPONSORSHIP_CONTACT_SECRET'),
         image: sponsorship,
       },
       {
         id: 'affiliate-tool',
-        text: import.meta.env.VITE_AFFILIATE_TOOL_DESCRIPTION_VARIABLE || 'Variable',
-        link: import.meta.env.VITE_AFFILIATE_TOOL_SECRET || '_blank',
+        text: getEnvVariable('VITE_AFFILIATE_TOOL_DESCRIPTION_VARIABLE'),
+        link: getEnvVariable('VITE_AFFILIATE_TOOL_SECRET'),
         image: affiliateTool,
       },
       {
         id: 'whatsapp',
-        link: import.meta.env.VITE_BUY_A_IMAGE_SECRET || '_blank',
-        title: import.meta.env.VITE_BUY_A_IMAGE_SECRET || '_blank',
+        link: getEnvVariable('VITE_BUY_A_IMAGE_SECRET'),
+        title: getEnvVariable('VITE_BUY_A_IMAGE_SECRET'),
       },
       {
         id: 'telegram',
-        link: import.meta.env.VITE_TELEGRAM_SECRET || '_blank',
-        title: import.meta.env.VITE_TELEGRAM_SECRET || '_blank',
+        link: getEnvVariable('VITE_TELEGRAM_SECRET'),
+        title: getEnvVariable('VITE_TELEGRAM_SECRET'),
       },
       {
         id: 'instagram',
-        link: import.meta.env.VITE_INSTAGRAM_SECRET || '_blank',
-        title: import.meta.env.VITE_INSTAGRAM_SECRET || '_blank',
+        link: getEnvVariable('VITE_INSTAGRAM_SECRET'),
+        title: getEnvVariable('VITE_INSTAGRAM_SECRET'),
       },
       {
         id: 'facebook',
-        link: import.meta.env.VITE_FACEBOOK_SECRET || '_blank',
-        title: import.meta.env.VITE_FACEBOOK_SECRET || '_blank',
+        link: getEnvVariable('VITE_FACEBOOK_SECRET'),
+        title: getEnvVariable('VITE_FACEBOOK_SECRET'),
       },
       {
         id: 'email',
-        link: import.meta.env.VITE_EMAIL_SECRET || '_blank',
-        title: import.meta.env.VITE_EMAIL_SECRET || '_blank',
+        link: getEnvVariable('VITE_EMAIL_SECRET'),
+        title: getEnvVariable('VITE_EMAIL_SECRET'),
       },
       {
         id: 'tiktok',
-        link: import.meta.env.VITE_TIKTOK_SECRET || '_blank',
-        title: import.meta.env.VITE_TIKTOK_SECRET || '_blank',
+        link: getEnvVariable('VITE_TIKTOK_SECRET'),
+        title: getEnvVariable('VITE_TIKTOK_SECRET'),
       }
     ];
 
@@ -100,15 +128,14 @@ const Replace = () => {
     for (let i = 1; i <= numLinks; i++) {
       elements.push({
         id: `link${i}`,
-        text: import.meta.env[`VITE_LINK${i}_DESCRIPTION_VARIABLE`] || '_blank',
-        link: import.meta.env[`VITE_LINK${i}_SECRET`] || 'Secret',
-        image: imageUrls[i] || '_blank',
+        text: getEnvVariable(`VITE_LINK${i}_DESCRIPTION_VARIABLE`),
+        link: getEnvVariable(`VITE_LINK${i}_SECRET`),
+        image: imageUrls[i],
       });
     }
 
     elements.forEach(({ id, text, link, title, image }) => {
       const linkElement = document.getElementById(id);
-      // const linkTitleElement = document.getElementById(id);
       const imageElement = document.getElementById(`${id}-image`);
       const descriptionElement = document.getElementById(`${id}-description`);
 
