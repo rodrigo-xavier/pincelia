@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 const Replace = () => {
   const numLinks = import.meta.env.VITE_NUMLINKS;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
 
   useEffect(() => {
     const elements = [
@@ -12,7 +13,7 @@ const Replace = () => {
       {
         id: 'profile-name',
         text: import.meta.env.VITE_PROFILE_NAME_SECRET || 'Secret',
-        image: "src/assets/img/profile.png"
+        image: `${baseUrl}/src/assets/img/profile.png`
       },
       {
         id: 'profile-about',
@@ -22,31 +23,31 @@ const Replace = () => {
         id: 'buy-a-image',
         text: import.meta.env.VITE_BUY_A_IMAGE_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_BUY_A_IMAGE_SECRET || '_blank',
-        image: "src/assets/img/aplicativo-de-ia.png",
+        image: `${baseUrl}/src/assets/img/aplicativo-de-ia.png"`
       },
       {
         id: 'buy-a-package',
         text: import.meta.env.VITE_BUY_A_PACKAGE_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_BUY_A_PACKAGE_SECRET || '_blank',
-        image: "src/assets/img/aplicativo-de-ia.png",
+        image: `${baseUrl}/src/assets/img/aplicativo-de-ia.png"`
       },
       {
         id: 'buy-a-course',
         text: import.meta.env.VITE_BUY_A_COURSE_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_BUY_A_COURSE_SECRET || '_blank',
-        image: "src/assets/img/curso-online.png",
+        image: `${baseUrl}/src/assets/img/curso-online.png"`
       },
       {
         id: 'sponsorship',
         text: import.meta.env.VITE_SPONSORSHIP_CONTACT_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_SPONSORSHIP_CONTACT_SECRET || '_blank',
-        image: "src/assets/img/patrocinio.png",
+        image: `${baseUrl}/src/assets/img/patrocinio.png"`
       },
       {
         id: 'affiliate-tool',
         text: import.meta.env.VITE_AFFILIATE_TOOL_DESCRIPTION_VARIABLE || 'Variable',
         link: import.meta.env.VITE_AFFILIATE_TOOL_SECRET || '_blank',
-        image: "src/assets/img/edicao-de-imagem.png",
+        image: `${baseUrl}/src/assets/img/edicao-de-imagem.png"`
       },
       {
         id: 'whatsapp',
@@ -81,12 +82,12 @@ const Replace = () => {
     ];
 
     const imageUrls = {
-      1: "src/assets/img/instagram.png",
-      2: "src/assets/img/instagram.png",
-      3: "src/assets/img/instagram.png",
-      4: "src/assets/img/tik-tok.png",
-      5: "src/assets/img/tik-tok.png",
-      6: "src/assets/img/tik-tok.png",
+      1: `${baseUrl}/src/assets/img/instagram.png`,
+      2: `${baseUrl}/src/assets/img/instagram.png`,
+      3: `${baseUrl}/src/assets/img/instagram.png`,
+      4: `${baseUrl}/src/assets/img/tik-tok.png`,
+      5: `${baseUrl}/src/assets/img/tik-tok.png`,
+      6: `${baseUrl}/src/assets/img/tik-tok.png`,
     };
 
     for (let i = 1; i <= numLinks; i++) {
