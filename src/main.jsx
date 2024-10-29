@@ -13,15 +13,19 @@ import React from "react";
 const router = createBrowserRouter(
   [
     {
-      path: "/",
+      path: "/pincelia/",
       element: <App />,
       children: [
         {
-          path: "/us",
+          path: "/pincelia/us",
           element: <App />
         },
         {
-          path: "/pt",
+          path: "/pincelia/pt",
+          element: <App />
+        },
+        {
+          path: "*",
           element: <App />
         },
       ],
