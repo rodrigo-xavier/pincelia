@@ -15,12 +15,12 @@
         <div id="root"></div>
         <div class="container">
             <div class="language-selector">
-                <a href="pincelia/us">
+                <a href="/us">
                     <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
                          alt="English"
                          title="English">
                 </a>
-                <a href="pincelia/pt">
+                <a href="/pt">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg"
                          alt="Português"
                          title="Português">
@@ -185,6 +185,20 @@
             });
             });
         </script>
+        <script type="text/javascript">
+            (function (l) {
+              if (l.search[1] === "/") {
+                var decoded = l.search
+                  .slice(1)
+                  .split("&")
+                  .map(function (s) {
+                    return s.replace(/~and~/g, "&");
+                  })
+                  .join("?");
+                window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+              }
+            })(window.location);
+          </script>
     </body>
 
 </html>
