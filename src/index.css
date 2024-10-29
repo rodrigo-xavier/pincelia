@@ -273,6 +273,9 @@ body {
         padding: 1.5rem;
         width: 100%;
     }
+    .language-selector {
+      left: 6%;
+    }
   }
   @media (max-width: 360px) {
     .container {
@@ -323,14 +326,12 @@ body {
 
 
 .language-selector {
-  text-align: center;
-  justify-content: center;
-  left: 12%;
-  position: relative;
-  top: 10px;
+  /* width: 100%; */
   display: flex;
+  justify-content: center;
+  position: relative;
   gap: 20px;
-  cursor: pointer;
+  margin-left: 20%;
 }
 .language-selector img {
   width: 40px;
