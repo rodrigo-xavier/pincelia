@@ -4,13 +4,14 @@ import tiktokImageUrl from "./assets/img/tik-tok.png"
 import profile from "./assets/img/profile.png"
 import buyAImage from "./assets/img/aplicativo-de-ia.png"
 import buyAPackage from "./assets/img/aplicativo-de-ia.png"
-import buyACourse from "./assets/img/curso-online.png"
+import buyACourse1 from "./assets/img/leonardo-course.jpg"
+import buyACourse2 from "./assets/img/gpt-course.jpg"
 import sponsorship from "./assets/img/patrocinio.png"
-import affiliateImage from "./assets/img/edicao-de-imagem.png"
-import affiliateAudio from "./assets/img/edicao-de-imagem.png"
+import affiliateImage from "./assets/img/leonardo.png"
+import affiliateAudio from "./assets/img/suno.png"
 import buyAMusic from "./assets/img/saxofone.png"
 import buyAClip from "./assets/img/videoclipe.png"
-import buyAAudio from "./assets/img/falando.png"
+import buyAGif from "./assets/img/gif.png"
 
 const Replace = () => {
   const numLinks = import.meta.env.VITE_NUMLINKS;
@@ -38,16 +39,20 @@ const Replace = () => {
         text: getEnvVariable('VITE_PROFILE_DESCRIPTION_VARIABLE'),
       },
       {
+        id: 'observation',
+        text: getEnvVariable('VITE_OBSERVATION_VARIABLE'),
+      },
+      {
         id: 'buy-a-image',
         text: getEnvVariable('VITE_BUY_A_IMAGE_DESCRIPTION_VARIABLE'),
         link: getEnvVariable('VITE_BUY_A_IMAGE_SECRET'),
         image: buyAImage,
       },
       {
-        id: 'buy-a-audio',
-        text: getEnvVariable('VITE_BUY_A_AUDIO_DESCRIPTION_VARIABLE'),
-        link: getEnvVariable('VITE_BUY_A_AUDIO_SECRET'),
-        image: buyAAudio,
+        id: 'buy-a-gif',
+        text: getEnvVariable('VITE_BUY_A_GIF_DESCRIPTION_VARIABLE'),
+        link: getEnvVariable('VITE_BUY_A_GIF_SECRET'),
+        image: buyAGif,
       },
       {
         id: 'buy-a-music',
@@ -71,13 +76,13 @@ const Replace = () => {
         id: 'buy-a-course1',
         text: getEnvVariable('VITE_BUY_A_COURSE1_DESCRIPTION_VARIABLE'),
         link: getEnvVariable('VITE_BUY_A_COURSE1_SECRET'),
-        image: buyACourse,
+        image: buyACourse1,
       },
       {
         id: 'buy-a-course2',
         text: getEnvVariable('VITE_BUY_A_COURSE2_DESCRIPTION_VARIABLE'),
         link: getEnvVariable('VITE_BUY_A_COURSE2_SECRET'),
-        image: buyACourse,
+        image: buyACourse2,
       },
       {
         id: 'sponsorship',
