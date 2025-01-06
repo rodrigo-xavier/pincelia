@@ -24,6 +24,11 @@ const Replace = () => {
       return import.meta.env[`${name}_${selectedLang}`] || import.meta.env[name];
     };
 
+    const title = getEnvVariable('VITE_TITLE_SECRET');
+    if (title) {
+      document.title = title;
+    }
+
     const elements = [
       {
         id: 'title',
